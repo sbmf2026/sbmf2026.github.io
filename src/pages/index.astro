@@ -1,0 +1,93 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Countdown from '~/pages/countdown.astro';
+import About from '~/pages/about.astro';
+import Program from '~/pages/program.astro';
+import ScopeTopics from '~/pages/scope_topics.astro';
+import Talks from '~/pages/talks.astro';
+import ImportantDate from '~/pages/important-date.astro';
+import Registration from '~/pages/registration.astro';
+import Committees from '~/pages/committees.astro';
+import Submission from '~/pages/submission.astro';
+import bgImage from '~/assets/images/image2.jpg';
+
+
+const metadata = {
+  title: '29th Brazilian Symposium on Formal Methods',
+  ignoreTitleTemplate: true,
+};
+
+const revealOnScrollClass = 'intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade';
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+  <Hero>
+    <Fragment slot="title">
+      <span class="drop-shadow-md">
+        29th Brazilian Symposium on Formal Methods
+      </span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <div class="space-y-4">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-4">
+          December 1-4, 2026
+        </h2>
+
+        <div class="inline-block rounded-xl bg-white/70 backdrop-blur-md px-6 py-3 shadow-lg dark:bg-slate-900/60">
+          <Countdown classes={{ container: 'py-0' }} />
+        </div>
+      </div>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 max-h-screen md:max-h-[600px] lg:max-h-[700px] overflow-hidden">
+        <img 
+          src={bgImage.src}
+          alt="City Background" 
+          class="w-full h-full object-cover object-bottom"
+        />
+        
+        <div class="absolute inset-0 bg-gradient-to-b from-white/95 via-white/40 to-transparent dark:from-slate-900 dark:via-slate-900/60 dark:to-transparent"></div>
+      </div>
+    </Fragment>
+  </Hero>
+
+
+  <div class={revealOnScrollClass}>
+    <About />
+  </div>
+
+  <div class={revealOnScrollClass}>
+    <Program />
+  </div>
+
+  <div class={revealOnScrollClass}>
+    <ScopeTopics />
+  </div>
+
+  <!--
+  <div class={revealOnScrollClass}>
+    <Talks />
+  </div>
+   -->
+
+  <div class={revealOnScrollClass}>
+    <ImportantDate />
+  </div>
+
+  <div class={revealOnScrollClass}>
+    <Registration />
+  </div>
+
+  <div class={revealOnScrollClass}>
+    <Committees />
+  </div>
+
+  <div class={revealOnScrollClass}>
+    <Submission />
+  </div>
+
+</Layout>

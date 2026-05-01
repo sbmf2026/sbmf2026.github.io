@@ -1,0 +1,108 @@
+---
+
+const {
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+---
+
+  <!-- Título -->
+  <div class="w-full text-center mb-4">
+    <div class="flex items-center justify-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" 
+           class="w-5 h-5 text-primary dark:text-white" 
+           fill="none" 
+           viewBox="0 0 24 24" 
+           stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+
+      <h3 class="text-sm font-semibold text-gray-800 dark:text-white tracking-wider uppercase">
+        Countdown
+      </h3>
+    </div>
+  </div>
+
+  <!-- Contador -->
+  <div class="flex justify-center gap-6 text-center">
+
+    <!-- Dias -->
+    <div class="flex flex-col items-center">
+      <div id="cd-days" class="font-heading text-primary text-2xl font-semibold dark:text-white lg:text-3xl">
+        00
+      </div>
+      <div class="text-xs uppercase tracking-wide text-gray-600 dark:text-slate-400">
+        Dias
+      </div>
+    </div>
+
+    <!-- Horas -->
+    <div class="flex flex-col items-center">
+      <div id="cd-hours" class="font-heading text-primary text-2xl font-semibold dark:text-white lg:text-3xl">
+        00
+      </div>
+      <div class="text-xs uppercase tracking-wide text-gray-600 dark:text-slate-400">
+        Horas
+      </div>
+    </div>
+
+    <!-- Minutos -->
+    <div class="flex flex-col items-center">
+      <div id="cd-minutes" class="font-heading text-primary text-2xl font-semibold dark:text-white lg:text-3xl">
+        00
+      </div>
+      <div class="text-xs uppercase tracking-wide text-gray-600 dark:text-slate-400">
+        Minutos
+      </div>
+    </div>
+
+    <!-- Segundos -->
+    <div class="flex flex-col items-center">
+      <div id="cd-seconds" class="font-heading text-primary text-2xl font-semibold dark:text-white lg:text-3xl">
+        00
+      </div>
+      <div class="text-xs uppercase tracking-wide text-gray-600 dark:text-slate-400">
+        Segundos
+      </div>
+    </div>
+
+  </div>
+
+<script>
+  // Define a data alvo do SBMF
+  const targetDate = new Date('December 1, 2026 00:00:00').getTime();
+
+  const updateCountdown = () => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    // Se a data já passou, zera tudo
+    if (distance < 0) {
+      return;
+    }
+
+    // Cálculos matemáticos de tempo
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Injeta os valores no HTML (usando padStart para manter sempre 2 dígitos, ex: "05" ao invés de "5")
+    const elDays = document.getElementById('cd-days');
+    const elHours = document.getElementById('cd-hours');
+    const elMinutes = document.getElementById('cd-minutes');
+    const elSeconds = document.getElementById('cd-seconds');
+
+    if (elDays) elDays.innerText = String(days).padStart(2, '0');
+    if (elHours) elHours.innerText = String(hours).padStart(2, '0');
+    if (elMinutes) elMinutes.innerText = String(minutes).padStart(2, '0');
+    if (elSeconds) elSeconds.innerText = String(seconds).padStart(2, '0');
+  };
+
+  // Roda uma vez imediatamente para não piscar "00", e depois atualiza a cada 1 segundo
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>

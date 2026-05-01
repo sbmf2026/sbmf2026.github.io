@@ -1,0 +1,149 @@
+---
+// src/components/widgets/Submission.astro
+---
+
+<section id="submission" class="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20 text-slate-800 dark:text-slate-200">
+  
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-slate-900 dark:text-white">
+      Submission Instructions
+    </h2>
+    <div class="w-16 h-1 bg-blue-600 mx-auto rounded mb-6"></div>
+    <p class="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-400">
+      We invite submissions of papers with a strong emphasis on formal methods, whether practical or theoretical, in the following categories:
+    </p>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-6 mb-12">
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 sm:p-8 shadow-sm hover:shadow-md transition">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Regular papers</h3>
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300 uppercase tracking-wider">
+          Max 15 Pages
+        </span>
+      </div>
+      <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
+        Proofs of theoretical results that do not fit the page limit may be provided in an appendix.
+      </p>
+    </div>
+
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 sm:p-8 shadow-sm hover:shadow-md transition">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Short papers</h3>
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300 uppercase tracking-wider">
+          Max 8 Pages
+        </span>
+      </div>
+      <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
+        Includes system descriptions, user experiences, and case studies. We encourage authors to make the data needed to reproduce their experiments available.
+      </p>
+    </div>
+  </div>
+
+  <div class="text-center mb-12">
+    <p class="inline-block px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300">
+      <span class="text-blue-600 dark:text-blue-400 mr-2">ℹ</span> The page limits exclude references and appendices.
+    </p>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-10 mb-16 max-w-5xl mx-auto">
+    <div>
+      <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center">
+        <span class="text-blue-600 mr-2">❖</span> Formatting & Guidelines
+      </h4>
+      <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+        Contributions should not be simultaneously submitted for publication elsewhere. They should be written in English, and prepared using Springer’s Lecture Notes in Computer Science (LNCS) format. 
+      </p>
+      <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+        Springer’s proceedings LaTeX templates are available in Overleaf.
+      </p>
+      <a 
+        href="https://www.springer.com/gp/computer-science/lncs/conference-proceedings-guidelines" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="inline-flex items-center text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition"
+      >
+        View LNCS Guidelines <span class="ml-1">→</span>
+      </a>
+    </div>
+
+    <div>
+      <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center">
+        <span class="text-blue-600 mr-2">❖</span> Review Process
+      </h4>
+      <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+        Papers should present unpublished and original work that has a clear contribution to the state-of-the-art on the theory and practice of formal methods. 
+      </p>
+      <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+        Papers will be judged by at least <strong>three reviewers</strong> based on originality, relevance, technical soundness, and presentation quality. Industry papers should emphasize the practical application of formal methods or report on open challenges.
+      </p>
+    </div>
+  </div>
+
+  <div class="text-center bg-blue-50 dark:bg-slate-800/40 border border-blue-100 dark:border-slate-800 rounded-2xl p-8 sm:p-12">
+    <h3 class="text-2xl font-bold mb-3 text-slate-900 dark:text-white">Ready to submit?</h3>
+    <p class="text-slate-600 dark:text-slate-400 mb-8 max-w-lg mx-auto">
+      Upload your manuscript securely through the EasyChair platform.
+    </p>
+    <a 
+      href="https://easychair.org/my/conference?conf=sbmf2026" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all bg-blue-600 border border-transparent rounded-lg shadow-sm hover:bg-blue-700 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900"
+    >
+      Submit via EasyChair
+      <svg class="w-5 h-5 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+    </a>
+  </div>
+
+  <div id="publication" class="mt-20 pt-16 border-t border-slate-200 dark:border-slate-800 max-w-5xl mx-auto">
+    
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold tracking-tight mb-4 text-slate-900 dark:text-white">
+        Publication
+      </h2>
+      <div class="w-16 h-1 bg-blue-600 mx-auto rounded"></div>
+    </div>
+
+    <div class="space-y-8">
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm">
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3 flex items-center">
+            <span class="text-blue-600 mr-2">📚</span> Proceedings
+          </h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            We plan that accepted papers will be published, after the conference, in a volume of <strong>LNCS (Lecture Notes in Computer Science)</strong>. The authors will be requested to complete and sign a consent-to-publish form.
+          </p>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 border-l-4 border-l-red-500 border-y border-r border-slate-200 dark:border-slate-800 rounded-r-xl rounded-l-sm p-6 shadow-sm">
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3 flex items-center">
+            <span class="text-red-500 mr-2">⚠️</span> Mandatory Registration
+          </h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            Every accepted paper <strong class="text-slate-900 dark:text-white">MUST</strong> have at least one author registered in the symposium by the time the camera-ready copy is submitted. The registered author is also expected to attend the symposium and present the paper.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800/50 rounded-xl p-6 flex gap-4 items-start">
+        <div class="text-amber-600 dark:text-amber-500 mt-0.5 shrink-0">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        </div>
+        <div>
+          <h4 class="text-base font-bold text-amber-900 dark:text-amber-400 mb-1 uppercase tracking-wide text-sm">
+            To be confirmed: Special Issue
+          </h4>
+          <p class="text-sm text-amber-800 dark:text-amber-500/90 leading-relaxed">
+            We plan to follow on last years' tradition of organizing a special issue of the <strong>Science of Computer Programming Journal (Elsevier)</strong> with selected and extended papers from the 29th Brazilian Symposium on Formal Methods (SBMF 2026).
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>

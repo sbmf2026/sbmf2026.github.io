@@ -1,0 +1,190 @@
+---
+// src/components/widgets/Registration.astro
+
+const registrationSlots = [
+  {
+    period: "19/Sep - 12/Oct",
+    rates: [
+      { category: "Undergraduate Student – SBC Member", sbmf: "R$ 50,00", sbmfSbc: "R$ 83,00", etmf: "R$ 0,00*", etmfSbc: "R$ 33,00" },
+      { category: "Undergraduate Student – non SBC Member", sbmf: "R$ 88,00", sbmfSbc: "R$ 83,00", etmf: "R$ 0,00*", etmfSbc: "R$ 33,00" },
+      { category: "Graduate Student – SBC Member", sbmf: "R$ 110,00", sbmfSbc: "R$ 245,00", etmf: "R$ 50,00", etmfSbc: "R$ 185,00" },
+      { category: "Graduate Student – non SBC Member", sbmf: "R$ 256,00", sbmfSbc: "R$ 245,00", etmf: "R$ 190,00", etmfSbc: "R$ 185,00" },
+      { category: "Basic Education Teacher – SBC Member", sbmf: "R$ 165,00", sbmfSbc: "R$ 300,00", etmf: "R$ 50,00", etmfSbc: "R$ 185,00" },
+      { category: "Basic Education Teacher – non SBC Member", sbmf: "R$ 317,00", sbmfSbc: "R$ 300,00", etmf: "R$ 190,00", etmfSbc: "R$ 185,00" },
+      { category: "Federal Education Teacher – SBC Member", sbmf: "R$ 175,00", sbmfSbc: "R$ 545,00", etmf: "R$ 50,00", etmfSbc: "R$ 420,00" },
+      { category: "Federal Education Teacher – non SBC Member", sbmf: "R$ 563,00", sbmfSbc: "R$ 545,00", etmf: "R$ 425,00", etmfSbc: "R$ 420,00" },
+      { category: "Professional – SBC Member", sbmf: "R$ 200,00**", sbmfSbc: "R$ 575,00**", etmf: "R$ 50,00**", etmfSbc: "R$ 425,00**" },
+      { category: "Professional – non SBC Member", sbmf: "R$ 595,00**", sbmfSbc: "R$ 575,00**", etmf: "R$ 430,00**", etmfSbc: "R$ 425,00**" },
+    ]
+  },
+  {
+    period: "13/Oct - 09/Nov",
+    rates: [
+      { category: "Undergraduate Student – SBC Member", sbmf: "R$ 60,00", sbmfSbc: "R$ 93,00", etmf: "R$ 0,00*", etmfSbc: "R$ 33,00" },
+      { category: "Undergraduate Student – non SBC Member", sbmf: "R$ 99,00", sbmfSbc: "R$ 93,00", etmf: "R$ 0,00*", etmfSbc: "R$ 33,00" },
+      { category: "Graduate Student – SBC Member", sbmf: "R$ 140,00", sbmfSbc: "R$ 275,00", etmf: "R$ 70,00", etmfSbc: "R$ 205,00" },
+      { category: "Graduate Student – non SBC Member", sbmf: "R$ 289,00", sbmfSbc: "R$ 275,00", etmf: "R$ 212,00", etmfSbc: "R$ 205,00" },
+      { category: "Basic Education Teacher – SBC Member", sbmf: "R$ 190,00", sbmfSbc: "R$ 325,00", etmf: "R$ 70,00", etmfSbc: "R$ 205,00" },
+      { category: "Basic Education Teacher – non SBC Member", sbmf: "R$ 344,00", sbmfSbc: "R$ 325,00", etmf: "R$ 212,00", etmfSbc: "R$ 205,00" },
+      { category: "Federal Education Teacher – SBC Member", sbmf: "R$ 200,00", sbmfSbc: "R$ 570,00", etmf: "R$ 70,00", etmfSbc: "R$ 440,00" },
+      { category: "Federal Education Teacher – non SBC Member", sbmf: "R$ 590,00", sbmfSbc: "R$ 570,00", etmf: "R$ 447,00", etmfSbc: "R$ 440,00" },
+      { category: "Professional – SBC Member", sbmf: "R$ 220,00**", sbmfSbc: "R$ 595,00**", etmf: "R$ 70,00**", etmfSbc: "R$ 445,00**" },
+      { category: "Professional – non SBC Member", sbmf: "R$ 617,00**", sbmfSbc: "R$ 595,00**", etmf: "R$ 452,00**", etmfSbc: "R$ 445,00**" },
+    ]
+  },
+  {
+    period: "09/Nov - 05/Dec",
+    rates: [
+      { category: "Undergraduate Student – SBC Member", sbmf: "R$ 70,00", sbmfSbc: "R$ 103,00", etmf: "R$ 0,00*", etmfSbc: "R$ 33,00" },
+      { category: "Undergraduate Student – non SBC Member", sbmf: "R$ 110,00", sbmfSbc: "R$ 103,00", etmf: "R$ 0,00*", etmfSbc: "R$ 33,00" },
+      { category: "Graduate Student – SBC Member", sbmf: "R$ 160,00", sbmfSbc: "R$ 295,00", etmf: "R$ 90,00", etmfSbc: "R$ 225,00" },
+      { category: "Graduate Student – non SBC Member", sbmf: "R$ 311,00", sbmfSbc: "R$ 295,00", etmf: "R$ 234,00", etmfSbc: "R$ 225,00" },
+      { category: "Basic Education Teacher – SBC Member", sbmf: "R$ 200,00", sbmfSbc: "R$ 335,00", etmf: "R$ 90,00", etmfSbc: "R$ 225,00" },
+      { category: "Basic Education Teacher – non SBC Member", sbmf: "R$ 355,00", sbmfSbc: "R$ 335,00", etmf: "R$ 234,00", etmfSbc: "R$ 225,00" },
+      { category: "Federal Education Teacher – SBC Member", sbmf: "R$ 210,00", sbmfSbc: "R$ 580,00", etmf: "R$ 90,00", etmfSbc: "R$ 460,00" },
+      { category: "Federal Education Teacher – non SBC Member", sbmf: "R$ 601,00", sbmfSbc: "R$ 580,00", etmf: "R$ 469,00", etmfSbc: "R$ 460,00" },
+      { category: "Professional – SBC Member", sbmf: "R$ 240,00**", sbmfSbc: "R$ 615,00**", etmf: "R$ 90,00**", etmfSbc: "R$ 465,00**" },
+      { category: "Professional – non SBC Member", sbmf: "R$ 639,00**", sbmfSbc: "R$ 615,00**", etmf: "R$ 474,00**", etmfSbc: "R$ 465,00**" },
+    ]
+  }
+];
+---
+
+<section id="registration" class="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20 text-slate-800 dark:text-slate-200">
+  
+  <div class="text-center mb-10 sm:mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-slate-900 dark:text-white">
+      Registration
+    </h2>
+    <div class="w-16 h-1 bg-blue-600 mx-auto rounded mb-6"></div>
+    <p class="max-w-3xl mx-auto text-lg text-slate-600 dark:text-slate-400 mb-6">
+      Please carefully read the information below to know the conditions and deadlines. All registration fees are in Brazilian reais (R$/BRL).
+    </p>
+
+    <div class="inline-block text-left bg-blue-50 dark:bg-slate-800/50 border border-blue-100 dark:border-slate-700/50 rounded-lg p-4 mb-8 text-sm">
+      <ul class="space-y-2">
+        <li><span class="font-bold text-blue-700 dark:text-blue-400">*</span> Full discount at ETMF exclusively for undergraduate students.</li>
+        <li><span class="font-bold text-blue-700 dark:text-blue-400">**</span> Conference Dinner included.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm overflow-hidden mb-12">
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse whitespace-nowrap">
+        <thead class="bg-slate-50 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-700">
+          <tr>
+            <th class="py-4 px-6 text-sm font-semibold text-slate-900 dark:text-white">Category</th>
+            <th class="py-4 px-6 text-sm font-semibold text-slate-900 dark:text-white">SBMF</th>
+            <th class="py-4 px-6 text-sm font-semibold text-slate-900 dark:text-white">SBMF + SBC</th>
+            <th class="py-4 px-6 text-sm font-semibold text-slate-900 dark:text-white">ETMF</th>
+            <th class="py-4 px-6 text-sm font-semibold text-slate-900 dark:text-white">ETMF + SBC</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+          
+          {registrationSlots.map((slot) => (
+            <>
+              <tr class="bg-slate-90 dark:bg-slate-800/90">
+                <td colspan="5" class="py-2 px-6 font-semibold tracking-wider text-sm text-center">
+                  Period: {slot.period}
+                </td>
+              </tr>
+              
+              {slot.rates.map((rate) => (
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+                  <td class="py-3 px-6 text-sm font-medium text-slate-900 dark:text-slate-200">
+                    {rate.category}
+                  </td>
+                  <td class="py-3 px-6 text-sm text-slate-600 dark:text-slate-400">{rate.sbmf}</td>
+                  <td class="py-3 px-6 text-sm text-slate-600 dark:text-slate-400">{rate.sbmfSbc}</td>
+                  <td class="py-3 px-6 text-sm text-slate-600 dark:text-slate-400">{rate.etmf}</td>
+                  <td class="py-3 px-6 text-sm text-slate-600 dark:text-slate-400">{rate.etmfSbc}</td>
+                </tr>
+              ))}
+            </>
+          ))}
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <h3 class="text-2xl font-bold mb-6 text-slate-900 dark:text-white">Registration is on!</h3>
+    <a 
+      href="https://centraldesistemas.sbc.org.br/ecos/sbmf2026" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all bg-green-600 border border-transparent rounded-lg shadow-sm hover:bg-green-700 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900"
+    >
+      Register Now via SBC ECOS!
+      <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+    </a>
+  </div>
+
+  <div class="max-w-4xl mx-auto mt-12 mb-12 space-y-4">
+    
+    <details class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm">
+      <summary class="flex justify-between items-center font-semibold cursor-pointer list-none p-5 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+        <span>PROMOTIONAL REGISTRATION</span>
+        <span class="transition group-open:rotate-180 text-blue-600 dark:text-blue-400">
+          <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+        </span>
+      </summary>
+      <div class="text-slate-600 dark:text-slate-400 p-5 pt-0 border-t border-slate-100 dark:border-slate-800 mt-3 leading-relaxed">
+        <p class="mb-4">Non-SBC members or members with an annual fee that is about to expire can join or renew their membership along with their registration, choosing the COMBO categories with a discount on the registration fee.</p>
+        <p class="mb-4">The COMBO categories are the most advantageous option for non-SBC members, as the registration fees are lower than the categories without combo and include SBC membership.</p>
+        <p class="mb-4">Becoming a member of SBC is a way to make SBC even stronger to represent our area of work with the various sectors. How about becoming part of our Community?</p>
+        <p class="font-semibold text-slate-800 dark:text-slate-200 mb-2">Some exclusive member benefits:</p>
+        <ul class="list-disc pl-5 space-y-2">
+          <li>Access to the <a href="https://www.sbc.org.br/2-uncategorised/1945-acesso-a-rede-sem-fio-eduroam-para-associados-da-sbc" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Eduroam</a> wireless network;</li>
+          <li>Discount on enrollments in the more than <a href="https://centraldesistemas.sbc.org.br/ecos" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">40 events</a> held annually by SBC;</li>
+          <li>Differential enrollment fee in <a href="https://www.sbc.org.br/index.php?option=com_content&view=article&layout=edit&id=458" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">POSCOMP</a>;</li>
+          <li>Access to studies conducted by SBC and intended for public or private agencies, expressing the Society's political positions.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm">
+      <summary class="flex justify-between items-center font-semibold cursor-pointer list-none p-5 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+        <span>PAYMENT METHODS</span>
+        <span class="transition group-open:rotate-180 text-blue-600 dark:text-blue-400">
+          <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+        </span>
+      </summary>
+      <div class="text-slate-600 dark:text-slate-400 p-5 pt-0 border-t border-slate-100 dark:border-slate-800 mt-3 leading-relaxed">
+        <p class="mb-4">Payment of enrollments can be made by means of bank slip, credit card, debit in Banco do Brasil account, purchase order or invoice.</p>
+        <p class="mb-4">Enrollments can be made until the last day of the event, however payments by debit and bill will be accepted until <strong>November 28th, 2026</strong>.</p>
+        <p class="font-semibold text-slate-800 dark:text-slate-200 mb-2">Enrollments by purchase order or invoice:</p>
+        <p>The participant must access the enrollment system and register, selecting the payment method "purchase order" or "invoice" and clicking on pay. The system will provide the information necessary for the enrollment to be confirmed.</p>
+      </div>
+    </details>
+
+    <details class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm">
+      <summary class="flex justify-between items-center font-semibold cursor-pointer list-none p-5 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+        <span>ENROLLMENT FOR AUTHORS</span>
+        <span class="transition group-open:rotate-180 text-blue-600 dark:text-blue-400">
+          <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+        </span>
+      </summary>
+      <div class="text-slate-600 dark:text-slate-400 p-5 pt-0 border-t border-slate-100 dark:border-slate-800 mt-3 leading-relaxed">
+        <p>Registration for SBMF authors. Papers accepted to SBMF will be published in a volume of LNCS. At least one author (professional or student) of each accepted paper must be registered for SBMF 2026. Authors can not use the registration benefits (exemption or 50% discount) granted by SBC to affiliated institutions. The author registration must be paid until <strong class="text-slate-800 dark:text-slate-200">October 13th, 2026</strong>.</p>
+      </div>
+    </details>
+
+    <details class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm">
+      <summary class="flex justify-between items-center font-semibold cursor-pointer list-none p-5 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+        <span>CANCELLATION POLICY</span>
+        <span class="transition group-open:rotate-180 text-blue-600 dark:text-blue-400">
+          <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+        </span>
+      </summary>
+      <div class="text-slate-600 dark:text-slate-400 p-5 pt-0 border-t border-slate-100 dark:border-slate-800 mt-3 leading-relaxed">
+        <p>Until <strong class="text-slate-800 dark:text-slate-200">November 16th, 2026</strong>, a refund of <strong class="text-slate-800 dark:text-slate-200">50% of the registration fee</strong> for SBMF/ETMF may be requested. After this date, no refunds will be issued. This policy applies both to the cancellation of the registration itself and to the cancellation of any additional activities. To request a cancellation, please send your request to <a href="mailto:faturamento@sbc.org.br" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline">faturamento@sbc.org.br</a>.</p>
+      </div>
+    </details>
+
+  </div>
+
+</section>

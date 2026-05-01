@@ -1,0 +1,174 @@
+---
+// src/components/widgets/Committees.astro
+
+// Função auxiliar para gerar avatares com as iniciais
+const getAvatar = (name: string) => `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=eff6ff&color=1d4ed8&size=128&font-size=0.33`;
+
+const organizingGroups = [
+  {
+    role: "General Chair",
+    members: [
+      { 
+        name: "Edward Hermann Haeusler", 
+        institution: "Pontifícia Universidade Católica do Rio de Janeiro, Brazil", 
+        image: "https://www.inf.puc-rio.br/wordpress/wp-content/uploads/2014/02/Edward-Hermann-Haeusler.jpg" 
+      }
+    ]
+  },
+  {
+    role: "PC Chairs",
+    members: [
+      { name: "Genaína Nunes Rodrigues", institution: "Universidade de Brasília, Brazil",
+        image: "https://cic.unb.br/images/uploads/2015/11/Genaina-150x150.jpg"
+      },
+      
+      { name: "Pedro Ribeiro", institution: "University of York, UK", 
+      image: "https://www.cs.york.ac.uk/people/bigphotos/pfr.jpeg"
+      }
+    ]
+  },
+  {
+    role: "Web Chair",
+    members: [
+      { name: "Renato Paiva", institution: "Universidade de Brasília, Brazil", image: getAvatar("Renato Paiva") }
+    ]
+  },
+  {
+    role: "Steering Committee",
+    members: [
+      { name: "Vince Molnár", institution: "Budapest University of Technology and Economics, Hungary", image: getAvatar("Vince Molnar") },
+      { name: "Lucas Lima", institution: "Universidade Federal Rural de Pernambuco, Brazil", image: getAvatar("Lucas Lima") },
+      { name: "Yoni Zohar", institution: "Bar-Ilan University, Israel", image: getAvatar("Yoni Zohar") },
+      { name: "Haniel Barbosa", institution: "Universidade Federal de Minas Gerais, Brazil", image: getAvatar("Haniel Barbosa") },
+      { name: "Ciprian Teodorov", institution: "ENSTA-Bretagne, France", image: getAvatar("Ciprian Teodorov") },
+      { name: "Sidney C. Nogueira", institution: "Universidade Federal Rural de Pernambuco, Brazil", image: getAvatar("Sidney C. Nogueira") }
+    ]
+  }
+];
+
+// Nomes e Instituições separados para melhor tipografia
+const programCommittee = [
+  { name: "Jefferson O. Andrade", inst: "Instituto Federal do Espírito Santo - IFES" },
+  { name: "Luís Soares Barbosa", inst: "Universidade do Minho, INESC TEC and UNU-EGOV" },
+  { name: "Haniel Barbosa", inst: "Universidade Federal de Minas Gerais" },
+  { name: "Davide Basile", inst: "Formal Methods & Tools (FMT), ISTI-CNR" },
+  { name: "Armin Biere", inst: "University of Freiburg" },
+  { name: "Laura Bussi", inst: "Université du Luxembourg" },
+  { name: "Sérgio Campos", inst: "Universidade Federal de Minas Gerais" },
+  { name: "Gustavo Carvalho", inst: "Universidade Federal de Pernambuco" },
+  { name: "Valentina Castiglioni", inst: "Eindhoven University of Technology" },
+  { name: "Márcio Cornélio", inst: "Universidade Federal de Pernambuco" },
+  { name: "Katalin Fazekas", inst: "TU Wien" },
+  { name: "Mathias Fleury", inst: "University of Freiburg" },
+  { name: "Rohit Gheyi", inst: "Universidade Federal de Campina Grande" },
+  { name: "Ahmed Irfan", inst: "SRI International" },
+  { name: "Juliano Iyoda", inst: "Universidade Federal de Pernambuco" },
+  { name: "Thierry Lecomte", inst: "CLEARSY" },
+  { name: "Michael Leuschel", inst: "University of Düsseldorf" },
+  { name: "Lucas Lima", inst: "Universidade Federal Rural de Pernambuco" },
+  { name: "Alberto Lluch Lafuente", inst: "Technical University of Denmark" },
+  { name: "Alvaro Miyazawa", inst: "University of York" },
+  { name: "Vince Molnár", inst: "Budapest University of Technology and Economics" },
+  { name: "Alexandre Mota", inst: "Universidade Federal de Pernambuco" },
+  { name: "Sidney Nogueira", inst: "Universidade Federal Rural de Pernambuco" },
+  { name: "Marcel Oliveira", inst: "Universidade Federal do Rio Grande do Norte" },
+  { name: "José Proença", inst: "CISTER & University of Porto, Portugal" },
+  { name: "Pedro Ribeiro", inst: "University of York" },
+  { name: "Philipp Rümmer", inst: "University of Regensburg and Uppsala University" },
+  { name: "Augusto Sampaio", inst: "Federal University of Pernambuco" },
+  { name: "Hans-Jörg Schurr", inst: "The University of Iowa" },
+  { name: "Volker Stolz", inst: "Western Norway University of Applied Sciences" },
+  { name: "Ciprian Teodorov", inst: "Ensta Bretagne - Lab-STICC MOCS" },
+  { name: "Nils Timm", inst: "University of Pretoria" },
+  { name: "Jim Woodcock", inst: "University of York" },
+  { name: "Yoni Zohar", inst: "Bar-Ilan University" }
+];
+---
+<section id="committees" class="mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20 text-slate-800 dark:text-slate-200">
+  
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-slate-900 dark:text-white">
+      Committees
+    </h2>
+    <div class="w-16 h-1 bg-blue-600 mx-auto rounded"></div>
+  </div>
+
+  <div class="mb-24">
+    <h3 class="text-3xl font-bold mb-12 text-center text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-4">
+      Organizing Committee
+    </h3>
+
+    <div class="space-y-16">
+      {organizingGroups.map((group) => (
+        <div>
+          <h4 class="text-lg font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-8 text-center">
+            {group.role}
+          </h4>
+          
+          <div class="flex flex-wrap justify-center gap-6">
+            {group.members.map((member) => (
+              <div class="w-full sm:w-[calc(50%-1.5rem)] md:w-[calc(33.333%-1.5rem)] lg:w-[calc(25%-1.5rem)] flex flex-col items-center text-center p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm transition hover:shadow-md hover:border-blue-300 dark:hover:border-blue-700">
+                
+                <img 
+                  src={member.image} 
+                  alt={member.name} 
+                  loading="lazy"
+                  class="w-28 h-28 rounded-full object-cover object-top shadow-sm mb-4 ring-4 ring-slate-50 dark:ring-slate-800/50"
+                />
+                
+                <p class="font-bold text-lg text-slate-900 dark:text-white leading-tight mb-2">
+                  {member.name}
+                </p>
+                
+                <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  {member.institution}
+                </p>
+                
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-8 text-center">
+      <p class="text-sm text-slate-500 dark:text-slate-400">Contact the organizing committee at</p>
+
+      <a
+        href="mailto:sbmf2026@easychair.org"
+        class="inline-block mt-2 px-4 py-2 rounded-lg bg-white/60 dark:bg-slate-800/60 backdrop-blur-md border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-white/80 dark:hover:bg-slate-700/60 transition"
+      >
+        sbmf2026@easychair.org
+      </a>
+    </div>
+  </div>
+
+  <div>
+    <h3 class="text-3xl font-bold mb-10 text-center text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-4">
+      Program Committee
+    </h3>
+
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 sm:p-10 shadow-sm">
+      
+      <ul class="columns-1 sm:columns-2 lg:columns-3 gap-x-8 gap-y-4">
+        {programCommittee.map((member) => (
+          <li class="mb-5 break-inside-avoid flex items-start gap-3">
+            <span class="text-blue-500 mt-0.5 shrink-0">❖</span>
+            <div>
+              <p class="font-semibold text-slate-900 dark:text-slate-200 text-sm">
+                {member.name}
+              </p>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                {member.inst}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
+      
+    </div>
+  </div>
+
+      
+
+</section>

@@ -1,0 +1,92 @@
+---
+// src/components/widgets/Talks.astro
+import { Image } from 'astro:assets';
+
+// Definição dos dados dos palestrantes para facilitar a manutenção
+const speakers = [
+  {
+    name: 'Prof. Hans Vangheluwe',
+    title: 'Exploring Modelling Language Engineering',
+    institution: 'University of Antwerp, Belgium',
+    // Substitua '~/assets/images/hans.jpg' pela imagem real depois
+    // Por enquanto, usando um placeholder de 400x400
+    image: 'https://randomuser.me/api/portraits/men/44.jpg',
+    link: 'http://msdl.uantwerpen.be/people/hv/',
+    bio: 'Hans Vangheluwe is a Professor in the Antwerp Systems and Software Modelling (AnSyMo) group within the Computer Science Department at the University of Antwerp in Belgium, where he is a founding member of the NEXOR Consortium on Cyber-Physical Systems (CPS). He heads the Modelling, Simulation and Design Lab (MSDL). His fundamental work covers the foundations of modelling and (co-)simulation, of model management, model transformation, and collaborative domain-specific modelling environments.',
+  },
+  {
+    name: 'Prof. Marsha Chechik',
+    title: 'Formal Reasoning for Assuring Product Lines of Complex Systems',
+    institution: 'University of Toronto, Canada',
+    image: 'https://randomuser.me/api/portraits/women/68.jpg',
+    link: 'https://www.cs.toronto.edu/~chechik/',
+    bio: 'Marsha Chechik is Professor and former Chair in the Department of Computer Science at the University of Toronto, where she holds Bell University Labs Chair in Software Engineering. Her research interests are in the application of formal methods to improve the quality of software. She has co-authored numerous papers in formal methods, software specification and verification, computer safety and security, and requirements engineering. She is a Fellow of ACM and Chair of ACM SIGSOFT.',
+  },
+  {
+    name: 'Prof. Augusto Sampaio',
+    title: 'Safe Evolution of Smart Contracts Supported by LLMs and SMT Solvers',
+    institution: 'CIn - UFPE, Brazil',
+    image: 'https://randomuser.me/api/portraits/men/61.jpg',
+    link: 'https://www.cin.ufpe.br/~acas/',
+    bio: 'Augusto Sampaio is a Full Professor of Software Engineering at the Federal University of Pernambuco (UFPE) in Brazil. His research focuses on formal methods in software engineering, with contributions to the semantics, refinement, and transformation of concurrent and object-oriented models; model-based testing; and the integration of formal and semi-formal approaches. He is a member of the Brazilian Science Academy and Program Co-Chair of FM 2026.',
+  },
+];
+---
+
+<section id="talks" class="mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20 text-slate-800 dark:text-slate-200">
+  
+  <div class="text-center mb-12 sm:mb-16">
+    <p class="text-base text-blue-600 dark:text-blue-400 font-semibold tracking-wide uppercase">
+      Speakers
+    </p>
+    <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-slate-900 dark:text-white">
+      Special Talks
+    </h2>
+    <div class="w-24 h-1 bg-blue-600 mx-auto rounded mb-6"></div>
+    <p class="max-w-3xl mx-auto text-xl text-slate-600 dark:text-slate-400">
+      Meet our distinguished invited speakers for SBMF 2026.
+    </p>
+  </div>
+
+  <div class="grid gap-8 md:gap-12 md:grid-cols-2 lg:grid-cols-3">
+    {speakers.map((speaker) => (
+      <div class="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-lg shadow-gray-100/50 dark:shadow-none flex flex-col items-center text-center transition hover:border-blue-300 dark:hover:border-blue-700 hover:shadow-xl">
+        
+        <a href={speaker.link} target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center mb-6">
+          <div class="mb-5 relative">
+            <div class="absolute inset-0 bg-blue-600 rounded-full scale-105 blur opacity-20 group-hover:opacity-40 transition"></div>
+            <Image 
+              src={speaker.image} 
+              alt={`Photo of ${speaker.name}`}
+              width={300} 
+              height={300}
+              class="relative rounded-full w-32 h-32 md:w-40 md:h-40 object-cover border-4 border-white dark:border-slate-800 shadow-md group-hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <h3 class="text-2xl font-bold text-slate-950 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition mb-1">
+            {speaker.name}
+          </h3>
+          <p class="text-sm font-medium text-slate-500 dark:text-slate-500 uppercase tracking-wider">
+            {speaker.institution}
+          </p>
+        </a>
+
+        <div class="bg-blue-50 dark:bg-slate-800/50 border border-blue-100 dark:border-slate-700/50 rounded-xl p-5 mb-6 w-full grow flex flex-col justify-center">
+          <p class="text-xs font-semibold text-blue-700 dark:text-blue-300 uppercase tracking-widest mb-2">Talk Title</p>
+          <h4 class="text-lg font-semibold text-slate-900 dark:text-white leading-snug">
+            “{speaker.title}”
+          </h4>
+        </div>
+
+        <div class="text-left w-full">
+          <h5 class="text-sm font-semibold text-slate-900 dark:text-white mb-2">About the speaker</h5>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-6 group-hover:line-clamp-none transition-all">
+            {speaker.bio}
+          </p>
+        </div>
+        
+      </div>
+    ))}
+  </div>
+
+</section>

@@ -1,0 +1,50 @@
+---
+import { UI } from 'astrowind:config';
+
+// TODO: This code is temporary
+---
+
+<script is:inline define:vars={{ defaultTheme: UI.theme || 'system' }}>
+  const themeSettingKey = 'aw-theme-setting';
+  const selectableThemes = ['system', 'light', 'dark', 'light:only', 'dark:only'];
+
+  function isSelectableTheme(theme) {
+    return selectableThemes.includes(theme);
+  }
+
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    const matches = document.querySelectorAll('[data-aw-toggle-color-scheme] > input');
+
+    if (matches && matches.length) {
+      matches.forEach((elem) => {
+        elem.checked = theme !== 'dark';
+      });
+    }
+  }
+
+  function getResolvedSystemTheme() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  const storedThemeSetting = localStorage.getItem(themeSettingKey);
+
+  if (storedThemeSetting && isSelectableTheme(storedThemeSetting)) {
+    const isLocked = storedThemeSetting.endsWith(':only');
+    const normalizedTheme = isLocked ? storedThemeSetting.replace(':only', '') : storedThemeSetting;
+    applyTheme(normalizedTheme === 'system' ? getResolvedSystemTheme() : normalizedTheme);
+  } else if ((defaultTheme && defaultTheme.endsWith(':only')) || (!localStorage.theme && defaultTheme !== 'system')) {
+    applyTheme(defaultTheme.replace(':only', ''));
+  } else if (
+    localStorage.theme === 'dark' ||
+    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+  ) {
+    applyTheme('dark');
+  } else {
+    applyTheme('light');
+  }
+</script>
