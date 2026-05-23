@@ -29,48 +29,27 @@ const revealOnScrollClass = 'intersect-once intersect-quarter motion-safe:md:opa
   <!-- Hero Widget ******************* -->
   <Hero>
     <Fragment slot="title">
-      <div class="mx-auto grid w-full max-w-8xl grid-cols-1 items-center gap-8 
-        md:grid-cols-[minmax(80px,140px)_minmax(0,3fr)_minmax(80px,140px)] 
-        md:gap-8 lg:gap-10">
-        <div class="flex justify-center md:justify-start">
-          <img
-            src={logoNovo.src}
-            alt="SBMF 2026"
-            loading="eager"
-             class="h-20 w-20 object-contain opacity-95
-              sm:h-24 sm:w-24
-              md:h-28 md:w-28
-              lg:h-32 lg:w-32"
-          />
-        </div>
+      <div class="mx-auto flex w-full max-w-5xl flex-col items-center gap-2 text-center">
+        <img
+          src={logoNovo.src}
+          alt="SBMF 2026"
+          loading="eager"
+          class="hidden object-contain opacity-95 drop-shadow-xl pointer-events-none md:block h-28 w-28 sm:h-32 sm:w-32 lg:h-36 lg:w-36"
+        />
 
-        <div class="w-full space-y-4 text-center">
+        <div class="space-y-2">
           <span class="block w-full text-4xl font-bold tracking-tight drop-shadow-md md:text-5xl lg:text-6xl">
             29th Brazilian Symposium on Formal Methods
           </span>
 
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-bold tracking-tight">
+          <div class="space-y-2">
+            <h2 class="text-2xl font-bold tracking-tight md:text-3xl">
               December 1-4, 2026
             </h2>
 
-            <div class="inline-block rounded-xl bg-white/70 backdrop-blur-md px-6 py-3 shadow-lg dark:bg-slate-900/60">
+            <div class="inline-block rounded-xl bg-white/70 px-6 py-2.5 shadow-lg backdrop-blur-md dark:bg-slate-900/60">
               <Countdown classes={{ container: 'py-0' }} />
             </div>
-          </div>
-        </div>
-
-      <div class="flex justify-center md:justify-end">
-          <div class="rounded-2xl bg-white/70 backdrop-blur-md p-3 shadow-lg dark:bg-slate-900/60">
-            <img
-              src={logoSbc.src}
-              alt="SBMF logo SBC"
-              loading="eager"
-              class="h-20 w-20 object-contain opacity-95
-              sm:h-24 sm:w-24
-              md:h-28 md:w-28
-              lg:h-32 lg:w-32"
-            />
           </div>
         </div>
       </div>
@@ -139,13 +118,14 @@ const revealOnScrollClass = 'intersect-once intersect-quarter motion-safe:md:opa
     </div>
 
     <div class="flex items-center justify-center gap-5 sm:gap-6">
-
+      <!--
       <img
         src={logoSbc.src}
         alt="SBMF logo SBC"
         loading="lazy"
         class="h-14 w-14 object-contain opacity-100 brightness-0 invert sm:h-16 sm:w-16 md:h-20 md:w-20"
       />
+       -->
 
       <img
         src={logo_puc.src}
