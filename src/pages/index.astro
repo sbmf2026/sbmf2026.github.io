@@ -13,6 +13,7 @@ import Submission from '~/pages/submission.astro';
 import bgImage from '~/assets/images/image2.jpg';
 import logoNovo from '~/assets/images/logo_sbmf_vertical.png';
 import logoSbc from '~/assets/images/logo-sbc.png';
+import logo_puc from '~/assets/images/logo_puc.png';  
 
 
 const metadata = {
@@ -123,5 +124,37 @@ const revealOnScrollClass = 'intersect-once intersect-quarter motion-safe:md:opa
   <div class={revealOnScrollClass}>
     <Submission />
   </div>
+
+  <footer class="mt-20 border-t border-slate-200 bg-slate-950 px-4 py-10 text-white dark:border-slate-800 sm:px-6">
+
+  <div class="mx-auto flex max-w-7xl flex-col items-center justify-center gap-5 text-center">
+
+    <div class="space-y-1">
+      <p class="text-sm font-semibold uppercase tracking-[0.25em] text-slate-200">
+        Host and co-host organizers
+      </p>
+    </div>
+
+    <div class="flex items-center justify-center gap-5 sm:gap-6">
+
+      <img
+        src={logoSbc.src}
+        alt="SBMF logo SBC"
+        loading="lazy"
+        class="h-14 w-14 object-contain opacity-100 brightness-0 invert sm:h-16 sm:w-16 md:h-20 md:w-20"
+      />
+
+      <img
+        src={logo_puc.src}
+        alt="PUC Rio"
+        loading="lazy"
+        class="h-14 w-14 object-contain opacity-100 brightness-0 invert sm:h-16 sm:w-16 md:h-20 md:w-20"
+      />
+
+    </div>
+
+  </div>
+
+</footer>
 
 </Layout>
