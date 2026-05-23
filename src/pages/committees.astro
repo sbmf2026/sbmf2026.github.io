@@ -23,16 +23,17 @@ const organizingGroups = [
       },
       
       { name: "Pedro Ribeiro", institution: "University of York, UK", 
-      image: "https://www.cs.york.ac.uk/people/bigphotos/pfr.jpeg"
+        image: "https://www.cs.york.ac.uk/people/bigphotos/pfr.jpeg"
       }
     ]
   },
   {
     role: "Web Chair",
     members: [
-      { name: "Renato Paiva", institution: "Universidade de Brasília, Brazil", image: getAvatar("Renato Paiva") }
+      { name: "Renato Paiva", institution: "Universidade de Brasília, Brazil", image: "https://wwws.cnpq.br/cvlattesweb/pkg_util_img.show_foto?v_cod=K8788433H7" }
     ]
   },
+  /*
   {
     role: "Steering Committee",
     members: [
@@ -43,7 +44,8 @@ const organizingGroups = [
       { name: "Ciprian Teodorov", institution: "ENSTA-Bretagne, France", image: getAvatar("Ciprian Teodorov") },
       { name: "Sidney C. Nogueira", institution: "Universidade Federal Rural de Pernambuco, Brazil", image: getAvatar("Sidney C. Nogueira") }
     ]
-  }
+  },
+  */
 ];
 
 // Nomes e Instituições separados para melhor tipografia
@@ -149,13 +151,23 @@ const programCommittee = [
       Program Committee
     </h3>
 
+    <div class="not-prose mt-0">
+      <div
+        class="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-center shadow-sm"
+      >
+        <p class="mb-0 text-slate-700 dark:text-slate-300">
+           To be announced
+       
+        </p>
+      </div>
+    </div>
+
+    <!-- 
     <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 sm:p-10 shadow-sm">
-      
+     
       <ul class="columns-1 sm:columns-2 lg:columns-3 gap-x-8 gap-y-4">
-         <p class="mb-0 text-slate-700 dark:text-slate-300">
-          To be announced
-         </p>
-       <!-- 
+       
+       
        {programCommittee.map((member) => (
           <li class="mb-5 break-inside-avoid flex items-start gap-3">
             <span class="text-blue-500 mt-0.5 shrink-0">❖</span>
@@ -169,10 +181,12 @@ const programCommittee = [
             </div>
           </li>
         ))}
-        -->
+        
       </ul>
+     
       
     </div>
+     -->
   </div>
 
       
