@@ -6,18 +6,22 @@ export const headerData = {
       text: 'About',
       href: getPermalink('/#about'),
     },
+    /*
     {
       text: 'Program',
       href: getPermalink('/#program'),
     },
+    */
     {
       text: 'Scope & Topics',
       href: getPermalink('/#scope-and-topics'),
     },
+    /*
     {
       text: 'Speakers',
       href: getPermalink('/#talks'),
     },
+    */
     {
       text: 'Dates',
       href: getPermalink('/#important-dates'),
