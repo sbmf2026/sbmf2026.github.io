@@ -1,4 +1,16 @@
 ---
+
+import fotoMaurice from '../assets/images/photos/Maurice_Henri.jpg';
+import fotoCiprian from '../assets/images/photos/Ciprian_TEODOROV.png';
+import fotoYoni from '../assets/images/photos/yoni_zohar.jpg';
+import fotoLeopoldo from '../assets/images/photos/Leopoldo_Teixeira.jpg';
+import fotoSidney from '../assets/images/photos/Sidney_Nogueira.gif';
+import fotoHaniel from '../assets/images/photos/Haniel.png';
+import fotoEdward from '../assets/images/photos/Edward.jpg';
+import fotoGenaina from '../assets/images/photos/Genaina.jpg';
+import fotoPedro from '../assets/images/photos/Pedro_Ribeiro.jpeg';
+import fotoRenato from '../assets/images/photos/Renato.jpg';
+
 // src/components/widgets/Committees.astro
 
 // Função auxiliar para gerar avatares com as iniciais
@@ -11,7 +23,7 @@ const organizingGroups = [
       { 
         name: "Edward Hermann Haeusler", 
         institution: "Pontifícia Universidade Católica do Rio de Janeiro, Brazil", 
-        image: "https://www.inf.puc-rio.br/wordpress/wp-content/uploads/2014/02/Edward-Hermann-Haeusler.jpg" 
+        image: fotoEdward.src 
       }
     ]
   },
@@ -19,71 +31,74 @@ const organizingGroups = [
     role: "PC Chairs",
     members: [
       { name: "Genaína Nunes Rodrigues", institution: "Universidade de Brasília, Brazil",
-        image: "https://cic.unb.br/images/uploads/2015/11/Genaina-150x150.jpg"
+        image: fotoGenaina.src
       },
       
       { name: "Pedro Ribeiro", institution: "University of York, UK", 
-        image: "https://www.cs.york.ac.uk/people/bigphotos/pfr.jpeg"
+        image: fotoPedro.src
       }
     ]
   },
   {
     role: "Web Chair",
     members: [
-      { name: "Renato Paiva", institution: "Universidade de Brasília, Brazil", image: "https://wwws.cnpq.br/cvlattesweb/pkg_util_img.show_foto?v_cod=K8788433H7" }
+      { name: "Renato Paiva", institution: "Universidade de Brasília, Brazil", image: fotoRenato.src }
     ]
   },
-  /*
+  
   {
     role: "Steering Committee",
     members: [
-      { name: "Vince Molnár", institution: "Budapest University of Technology and Economics, Hungary", image: getAvatar("Vince Molnar") },
-      { name: "Lucas Lima", institution: "Universidade Federal Rural de Pernambuco, Brazil", image: getAvatar("Lucas Lima") },
-      { name: "Yoni Zohar", institution: "Bar-Ilan University, Israel", image: getAvatar("Yoni Zohar") },
-      { name: "Haniel Barbosa", institution: "Universidade Federal de Minas Gerais, Brazil", image: getAvatar("Haniel Barbosa") },
-      { name: "Ciprian Teodorov", institution: "ENSTA-Bretagne, France", image: getAvatar("Ciprian Teodorov") },
-      { name: "Sidney C. Nogueira", institution: "Universidade Federal Rural de Pernambuco, Brazil", image: getAvatar("Sidney C. Nogueira") }
+      { name: "Haniel Barbosa", institution: "Universidade Federal de Minas Gerais, Brazil", image: fotoHaniel.src },
+      { name: "Maurice ter Beek", institution: "CNR-ISTI, Italy", image: fotoMaurice.src},
+      { name: "Sidney Nogueira", institution: "Universidade Federal Rural de Pernambuco, Brazil", image: fotoSidney.src },
+      { name: "Leopoldo Teixeira", institution: "Universidade Federal de Pernambuco, Brazil", image: fotoLeopoldo.src },
+      { name: "Ciprian Teodorov", institution: "ENSTA Bretagne, France", image: fotoCiprian.src},
+      { name: "Yoni Zohar", institution: "Bar-Ilan University, Israel", image: fotoYoni.src }
     ]
-  },
-  */
+  },  
 ];
 
 // Nomes e Instituições separados para melhor tipografia
 const programCommittee = [
-  { name: "Jefferson O. Andrade", inst: "Instituto Federal do Espírito Santo - IFES" },
-  { name: "Luís Soares Barbosa", inst: "Universidade do Minho, INESC TEC and UNU-EGOV" },
-  { name: "Haniel Barbosa", inst: "Universidade Federal de Minas Gerais" },
-  { name: "Davide Basile", inst: "Formal Methods & Tools (FMT), ISTI-CNR" },
-  { name: "Armin Biere", inst: "University of Freiburg" },
-  { name: "Laura Bussi", inst: "Université du Luxembourg" },
-  { name: "Sérgio Campos", inst: "Universidade Federal de Minas Gerais" },
-  { name: "Gustavo Carvalho", inst: "Universidade Federal de Pernambuco" },
-  { name: "Valentina Castiglioni", inst: "Eindhoven University of Technology" },
-  { name: "Márcio Cornélio", inst: "Universidade Federal de Pernambuco" },
-  { name: "Katalin Fazekas", inst: "TU Wien" },
-  { name: "Mathias Fleury", inst: "University of Freiburg" },
-  { name: "Rohit Gheyi", inst: "Universidade Federal de Campina Grande" },
-  { name: "Ahmed Irfan", inst: "SRI International" },
-  { name: "Juliano Iyoda", inst: "Universidade Federal de Pernambuco" },
-  { name: "Thierry Lecomte", inst: "CLEARSY" },
-  { name: "Michael Leuschel", inst: "University of Düsseldorf" },
-  { name: "Lucas Lima", inst: "Universidade Federal Rural de Pernambuco" },
-  { name: "Alberto Lluch Lafuente", inst: "Technical University of Denmark" },
-  { name: "Alvaro Miyazawa", inst: "University of York" },
-  { name: "Vince Molnár", inst: "Budapest University of Technology and Economics" },
-  { name: "Alexandre Mota", inst: "Universidade Federal de Pernambuco" },
-  { name: "Sidney Nogueira", inst: "Universidade Federal Rural de Pernambuco" },
-  { name: "Marcel Oliveira", inst: "Universidade Federal do Rio Grande do Norte" },
-  { name: "José Proença", inst: "CISTER & University of Porto, Portugal" },
-  { name: "Pedro Ribeiro", inst: "University of York" },
-  { name: "Philipp Rümmer", inst: "University of Regensburg and Uppsala University" },
-  { name: "Augusto Sampaio", inst: "Federal University of Pernambuco" },
-  { name: "Hans-Jörg Schurr", inst: "The University of Iowa" },
-  { name: "Volker Stolz", inst: "Western Norway University of Applied Sciences" },
-  { name: "Ciprian Teodorov", inst: "Ensta Bretagne - Lab-STICC MOCS" },
-  { name: "Nils Timm", inst: "University of Pretoria" },
-  { name: "Jim Woodcock", inst: "University of York" },
-  { name: "Yoni Zohar", inst: "Bar-Ilan University" }
+  { name: "Jefferson O. Andrade", inst: "Instituto Federal do Espírito Santo, Brazil" },
+  { name: "Haniel Barbosa", inst: "Universidade Federal de Minas Gerais, Brazil" },
+  { name: "Luís Soares Barbosa", inst: "Universidade do Minho; INESC TEC; UNU-EGOV, Portugal" },
+  { name: "Davide Basile", inst: "Formal Methods & Tools; ISTI-CNR, Italy" },
+  { name: "Armin Biere", inst: "University of Freiburg, Germany" },
+  { name: "Silvia Bonfanti", inst: "University of Bergamo, Italy" },
+  { name: "Gustavo Carvalho", inst: "Universidade Federal de Pernambuco, Brazil" },
+  { name: "Valentina Castiglioni", inst: "Eindhoven University of Technology, Netherlands" },
+  { name: "Márcio Cornélio", inst: "Universidade Federal de Pernambuco, Brazil" },
+  { name: "Chelsea Edmonds", inst: "University of Western Australia, Australia" },
+  { name: "Katalin Fazekas", inst: "TU Wien, Austria" },
+  { name: "Ahmed Irfan", inst: "SRI International, USA" },
+  { name: "Juliano Iyoda", inst: "Universidade Federal de Pernambuco, Brazil" },
+  { name: "Alberto Lluch Lafuente", inst: "Technical University of Denmark, Denmark" },
+  { name: "Thierry Lecomte", inst: "CLEARSY, France" },
+  { name: "Livia Lestingi", inst: "Politecnico di Milano, Italy" },
+  { name: "Nianyu Li", inst: "ZGC National Laboratory, China" },
+  { name: "Lucas Lima", inst: "Universidade Federal Rural de Pernambuco, Brazil" },
+  { name: "Carlos Luna", inst: "Facultad de Ingeniería, Udelar, Uruguay" },
+  { name: "Alexandra Mendes", inst: "University of Porto, Portugal" },
+  { name: "Alvaro Miyazawa", inst: "University of York, United Kingdom" },
+  { name: "Vince Molnár", inst: "Budapest University of Technology and Economics, Hungary" },
+  { name: "Rosemary Monahan", inst: "National Univeristy of Ireland, Ireland" },
+  { name: "Alexandre Mota", inst: "Universidade Federal de Pernambuco, Brazil" },
+  { name: "Sidney Nogueira", inst: "Universidade Federal Rural de Pernambuco, Brazil" },
+  { name: "Marcel Oliveira", inst: "Universidade Federal do Rio Grande do Norte, Brazil" },
+  { name: "Luigia Petre", inst: "Åbo Akademi University, Finland" },
+  { name: "Luciana Rebelo", inst: "Gran Sasso Science Institute, Italy" },
+  { name: "Philipp Rümmer", inst: "University of Regensburg; Uppsala University, Germany/Sweden" },
+  { name: "Augusto Sampaio", inst: "Universidade Federal de Pernambuco, Brazil" },
+  { name: "Hans-Jörg Schurr", inst: "The University of Iowa, USA" },
+  { name: "Maike Schwammberger", inst: "KIT, Germany" },
+  { name: "Paola Spoletini", inst: "Kennesaw State University, USA" },
+  { name: "Volker Stolz", inst: "Western Norway University of Applied Sciences, Norway" },
+  { name: "Ciprian Teodorov", inst: "Ensta Bretagne - Lab-STICC MOCS, France" },
+  { name: "Nils Timm", inst: "University of Pretoria, South Africa" },
+  { name: "Jim Woodcock", inst: "University of York, United Kingdom" },
+  { name: "Yoni Zohar", inst: "Bar-Ilan University, Israel" }
 ];
 ---
 <section id="committees" class="mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20 text-slate-800 dark:text-slate-200">
@@ -150,19 +165,7 @@ const programCommittee = [
     <h3 class="text-3xl font-bold mb-10 text-center text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-4">
       Program Committee
     </h3>
-
-    <div class="not-prose mt-0">
-      <div
-        class="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-center shadow-sm"
-      >
-        <p class="mb-0 text-slate-700 dark:text-slate-300">
-           To be announced
-       
-        </p>
-      </div>
-    </div>
-
-    <!-- 
+    
     <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 sm:p-10 shadow-sm">
      
       <ul class="columns-1 sm:columns-2 lg:columns-3 gap-x-8 gap-y-4">
@@ -186,7 +189,7 @@ const programCommittee = [
      
       
     </div>
-     -->
+     
   </div>
 
       
