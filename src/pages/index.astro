@@ -1,6 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import AboutSBC from '~/components/widgets/AboutSBC.astro';
 import Countdown from '~/pages/countdown.astro';
 import About from '~/pages/about.astro';
 import Program from '~/pages/program.astro';
@@ -13,6 +14,7 @@ import Submission from '~/pages/submission.astro';
 import ContactUs from '~/pages/contact-us.astro';
 import bgImage from '~/assets/images/image2.jpg';
 import logoNovo from '~/assets/images/logo_sbmf_vertical.png';
+import logoSbcPortal from '~/assets/images/LogoSBCparaSite.png';
 import logoSbc from '~/assets/images/logo-sbc.png';
 import logo_puc from '~/assets/images/logo_puc.png';  
 
@@ -30,15 +32,25 @@ const revealOnScrollClass = 'intersect-once intersect-quarter motion-safe:md:opa
   <Hero>
     <Fragment slot="title">
       <div class="mx-auto flex w-full max-w-5xl flex-col items-center gap-2 text-center">
-        <img
-          src={logoNovo.src}
-          alt="SBMF 2026"
-          loading="eager"
-          class="hidden object-contain opacity-95 drop-shadow-xl pointer-events-none md:block h-28 w-28 sm:h-32 sm:w-32 lg:h-36 lg:w-36"
-        />
+        <div class="hidden items-center gap-10 md:flex lg:gap-14">
+          <a
+            class="shrink-0"
+            href="https://www.sbc.org.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Portal da SBC"
+          >
+            <img src={logoSbcPortal.src} alt="Realização: SBC" class="h-28 w-auto object-contain drop-shadow-md lg:h-32" />
+          </a>
+          <img
+            src={logoNovo.src}
+            alt="SBMF 2026"
+            loading="eager"
+            class="h-28 w-28 object-contain opacity-95 drop-shadow-xl pointer-events-none sm:h-32 sm:w-32 lg:h-36 lg:w-36"
+          />
+        </div>
 
         <div>
-          
           <span class="block w-full font-serif text-4xl font-semibold leading-tight tracking-normal text-slate-900 md:text-5xl lg:text-6xl dark:text-white"
 >
               29th Brazilian Symposium on Formal Methods
@@ -102,6 +114,10 @@ const revealOnScrollClass = 'intersect-once intersect-quarter motion-safe:md:opa
 
   <div class={revealOnScrollClass}>
     <Submission />
+  </div>
+
+  <div class={revealOnScrollClass}>
+    <AboutSBC />
   </div>
 
   <ContactUs />
