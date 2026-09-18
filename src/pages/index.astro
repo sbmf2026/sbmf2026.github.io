@@ -31,38 +31,35 @@ const revealOnScrollClass = 'intersect-once intersect-quarter motion-safe:md:opa
   <!-- Hero Widget ******************* -->
   <Hero>
     <Fragment slot="title">
-      <div class="mx-auto flex w-full max-w-5xl flex-col items-center gap-2 text-center">
-        <div class="hidden items-center gap-10 md:flex lg:gap-14">
+      <div class="mx-auto flex w-full max-w-6xl flex-col items-center gap-4 text-center">
+        <div class="flex w-full items-center justify-center gap-4 sm:gap-7 md:gap-10 lg:gap-14">
+          <img
+            src={logoNovo.src}
+            alt="SBMF 2026"
+            loading="eager"
+            class="hidden h-20 w-20 shrink-0 object-contain opacity-95 drop-shadow-xl pointer-events-none sm:block md:h-24 md:w-24 lg:h-28 lg:w-28"
+          />
+          <span class="block max-w-4xl font-serif text-3xl font-semibold leading-tight tracking-normal text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl dark:text-white">
+            29th Brazilian Symposium on Formal Methods
+          </span>
+
           <a
-            class="shrink-0"
+            class="hidden shrink-0 sm:block"
             href="https://www.sbc.org.br"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Portal da SBC"
           >
-            <img src={logoSbcPortal.src} alt="Realização: SBC" class="h-28 w-auto object-contain drop-shadow-md lg:h-32" />
+            <img src={logoSbcPortal.src} alt="Realização: SBC" class="h-20 w-auto object-contain drop-shadow-md md:h-24 lg:h-28" />
           </a>
-          <img
-            src={logoNovo.src}
-            alt="SBMF 2026"
-            loading="eager"
-            class="h-28 w-28 object-contain opacity-95 drop-shadow-xl pointer-events-none sm:h-32 sm:w-32 lg:h-36 lg:w-36"
-          />
         </div>
 
-        <div>
-          <span class="block w-full font-serif text-4xl font-semibold leading-tight tracking-normal text-slate-900 md:text-5xl lg:text-6xl dark:text-white"
->
-              29th Brazilian Symposium on Formal Methods
-          </span>
-
-          <div class="space-y-2">
-            <div class="inline-block rounded-xl bg-white/70 px-6 py-2.5 shadow-lg backdrop-blur-md dark:bg-slate-900/60">
-              <h2 class="font-sans text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl dark:text-slate-100" style="text-shadow: 0 1px 1px rgba(255,255,255,0.35);" >
+        <div class="space-y-2">
+          <div class="inline-block rounded-xl bg-white/70 px-6 py-2.5 shadow-lg backdrop-blur-md dark:bg-slate-900/60">
+            <h2 class="font-sans text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl dark:text-slate-100" style="text-shadow: 0 1px 1px rgba(255,255,255,0.35);" >
               December 1-4, 2026
             </h2>
-              <Countdown classes={{ container: 'py-0' }} />
-            </div>
+            <Countdown classes={{ container: 'py-0' }} />
           </div>
         </div>
       </div>
