@@ -6,12 +6,6 @@ export const headerData = {
       text: 'About',
       href: getPermalink('/#about'),
     },
-    /*
-    {
-      text: 'Program',
-      href: getPermalink('/#program'),
-    },
-    */
     {
       text: 'Scope & Topics',
       href: getPermalink('/#scope-and-topics'),
@@ -41,6 +35,28 @@ export const headerData = {
     {
       text: 'Publication',
       href: getPermalink('/#publication'),
+    },
+    {
+      text: 'Program',
+      links: [
+        {
+          text: 'Accepted Papers',
+          href: getPermalink('/#accepted-papers'),
+        },
+      ],
+    },
+    {
+      text: 'Attending',
+      links: [
+        {
+          text: 'Venue',
+          href: getPermalink('/#venue'),
+        },
+        {
+          text: 'Accommodation',
+          href: getPermalink('/#accommodation'),
+        },
+      ],
     },
   ],
   // Deixando vazio para remover botões extras (o solzinho do tema continua intacto no Header.astro)
