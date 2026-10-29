@@ -31,6 +31,10 @@ export const headerData = {
       href: getPermalink('/#registration'),
     },
     {
+      text: 'Accommodation',
+      href: getPermalink('/#accommodation'),
+    },
+    {
       text: 'Committees',
       href: getPermalink('/#committees'),
     },

@@ -1,0 +1,57 @@
+---
+const hotels = [
+  { name: 'ibis Styles RJ Botafogo', neighborhood: 'Botafogo', address: 'Rua São Clemente, 30 — Botafogo, Rio de Janeiro, RJ', phone: '(21) 3166-9240', email: 'hb2z6-re@accor.com', website: 'https://all.accor.com/hotel/B2Z6/index.pt-br.shtml', notes: 'For stays from November 30 to December 5, 2026: R$ 549.00 per night for a single room and R$ 609.00 for a double room, including breakfast, plus 5% ISS tax. Rates are subject to change and availability.' },
+  { name: 'ibis budget RJ Praia de Botafogo', neighborhood: 'Botafogo', address: 'Praça Joia Valansi, 24 — Botafogo, Rio de Janeiro, RJ', phone: '(21) 2156-6999 (hotel); (21) 2187-9999 (reservations)', email: 'h9600-re@accor.com', website: 'https://all.accor.com/hotel/9600/index.pt-br.shtml', notes: 'SBMF participants can request 15% off the website rate for reservations including breakfast by giving the code SBMF15 to the reservations team. Valid from December 1 to 4, 2026; cannot be combined with other discounts and is subject to availability. Book directly with the hotel. Reservations service is available Monday to Friday, 8 a.m.–6 p.m.; please check applicable conditions for other dates.' },
+  { name: 'ibis Rio de Janeiro Botafogo', neighborhood: 'Botafogo', address: 'Rua Paulino Fernandes, 39 — Botafogo, Rio de Janeiro, RJ', phone: '(21) 3515-2999', email: 'h7547-re@accor.com', website: 'https://all.accor.com/hotel/7547/index.pt-br.shtml', notes: 'For further information, please contact the hotel directly.' },
+  { name: 'Hotel Astoria Copacabana', neighborhood: 'Copacabana', address: 'Rua República do Peru, 345 — Copacabana, Rio de Janeiro, RJ', phone: '(21) 2545-9090 (also WhatsApp)', email: 'reservas@astoria.com.br', website: 'https://astoria.com.br/', notes: 'Daily rates include breakfast served in the restaurant. Check-in from 2 p.m.; check-out until noon. Rates are variable and subject to availability.' },
+  { name: 'ibis Copacabana Posto 5', neighborhood: 'Copacabana', address: 'Rua Xavier da Silveira, 82 — Copacabana, Rio de Janeiro, RJ', phone: '(21) 3721-2900', email: 'h9361-re@accor.com.br', website: 'https://all.accor.com/hotel/9361/index.pt-br.shtml', notes: 'Please check the hotel website for rates. A 10% discount is available through the free ALL Accor program.' },
+  { name: 'Hotel Vermont Ipanema', neighborhood: 'Ipanema', address: 'Rua Visconde de Pirajá, 254 — Ipanema, Rio de Janeiro, RJ', phone: '(21) 97445-5938 (reservations WhatsApp); (21) 3202-5500; (21) 3449-4700', email: 'reservas@hotelvermont.com.br', website: 'https://www.hotelvermont.com.br/', notes: 'For further information, please contact the hotel directly.' },
+  { name: 'Atlantis Copacabana Hotel', neighborhood: 'Copacabana', address: 'Rua Bulhões de Carvalho, 61 — Copacabana, Rio de Janeiro, RJ', phone: '(21) 2521-1142; (21) 99654-2636 (information WhatsApp)', email: 'reservas@atlantishotel.com.br', website: 'https://atlantishotel.com.br/', notes: 'R$ 500.00 per night for a single room and R$ 600.00 for a double room, including breakfast. Request this rate directly by email or telephone and mention the SBMF event at PUC-Rio. Check-in from 3 p.m.; check-out until noon. Please confirm the double-room bed configuration when booking.' },
+  { name: 'Hotel Atlântico Rio', neighborhood: 'Copacabana', address: 'Rua Xavier da Silveira, 112 — Copacabana, Rio de Janeiro, RJ', phone: '(21) 2128-7000', email: 'reservas@atlanticorio.com.br', website: 'https://atlanticorio.com.br/', notes: 'For further information, please contact the hotel directly.' },
+  { name: 'Samba Bossa Nova Ipanema', neighborhood: 'Arpoador', address: 'Rua Bulhões de Carvalho, 337 — Arpoador, Rio de Janeiro, RJ', phone: '(31) 98749-9407 (network reservations WhatsApp); (21) 3609-3200 (front desk)', email: 'reservas.bni@sambahospitality.com', website: 'https://sambahospitality.com/destinos/bossa-nova-ipanema-hotel/', notes: 'For stays from November 30 to December 5, 2026: Luxury category, R$ 583.00 single / R$ 658.00 double; Premium category, R$ 679.00 single / R$ 767.00 double, plus 5% ISS tax. Both quoted categories have double beds only. Please check availability and whether breakfast is included.' },
+  { name: 'Hotel Astoria Ipanema (formerly Mar Ipanema)', neighborhood: 'Ipanema', address: 'Rua Visconde de Pirajá, 539 — Ipanema, Rio de Janeiro, RJ', phone: '(21) 3543-4200', email: 'reservas@astoriaipanema.com.br', website: 'https://astoriaipanema.com.br/', notes: 'For further information, please contact the hotel directly.' },
+  { name: 'Ritz Hotel Leblon', neighborhood: 'Leblon', address: 'Avenida Ataulfo de Paiva, 1280 — Leblon, Rio de Janeiro, RJ', phone: '(21) 2540-4940', email: 'reservas@ritzhotel.com.br', website: 'https://www.ritzleblon.com.br/', notes: 'For further information, please contact the hotel directly.' },
+  { name: 'Promenade Palladium Leblon', neighborhood: 'Leblon', address: 'Rua General Artigas, 200 — Leblon, Rio de Janeiro, RJ', phone: '(21) 3171-7400; (21) 99191-5546 (WhatsApp)', email: 'reservas_palladium@promenade.com.br', website: 'https://www.promenade.com.br/hotel-palladium-leblon/', notes: 'For further information, please contact the hotel directly.' },
+  { name: 'South American Copacabana', neighborhood: 'Copacabana', address: 'Rua Francisco Sá, 90 — Copacabana, Rio de Janeiro, RJ', phone: '(21) 2227-9161; (21) 99518-7525 (WhatsApp)', email: 'reservas@southamericanhotel.com.br', website: 'https://www.southamericanhotel.com.br/', notes: 'For further information, please contact the hotel directly.' },
+  { name: 'Novotel RJ Praia de Botafogo', neighborhood: 'Botafogo', address: 'Praia de Botafogo, 330 — Botafogo, Rio de Janeiro, RJ', phone: '(21) 2187-9999 (telephone and WhatsApp)', email: 'h9631-re@accor.com', website: 'https://all.accor.com/hotel/9631/index.pt-br.shtml', notes: 'SBMF participants receive 10% off the public rate with code SBMF10. Book directly with the hotel by email or WhatsApp and provide the code. Rates vary with the time of booking and reservations are subject to availability.' },
+  { name: 'Nacional Inn Rio Copacabana (formerly Ibiza)', neighborhood: 'Copacabana', address: 'Rua Belfort Roxo, 250 — Copacabana, Rio de Janeiro, RJ', phone: '(21) 2117-4668 (reservations and WhatsApp); (21) 2295-7887 (front desk)', email: 'reservas@nacionalinncopacabana.com.br', website: 'https://www.nacionalinn.com.br/hoteis/nacional-inn-rio-copacabana', notes: 'SBMF participants receive 10% off the current website rate when booking directly with the hotel. Ask for Raquel or Patrícia and mention the “event at PUC-Rio or SBMF” rate. Individual reservations are subject to availability.' },
+  { name: 'ibis Copacabana Posto 2', neighborhood: 'Copacabana', address: 'Rua Ministro Viveiros de Castro, 134 — Copacabana, Rio de Janeiro, RJ', phone: '(21) 3218-1150', email: 'H6497-re@accor.com', website: 'https://all.accor.com/hotel/6497/index.pt-br.shtml', notes: 'For further information, please contact the hotel directly.' },
+  { name: 'Windsor Palace Copacabana', neighborhood: 'Copacabana', address: 'Rua Domingos Ferreira, 6 — Copacabana, Rio de Janeiro, RJ', phone: '(21) 2195-7800 (reservations); (21) 2195-6600 (hotel)', email: 'reservas.windsor@windsorhoteis.com.br', website: 'https://windsorhoteis.com/hotel/windsor-palace-copacabana/', notes: 'For further information, please contact the hotel directly.' },
+  { name: 'Windsor Copa', neighborhood: 'Copacabana', address: 'Avenida Nossa Senhora de Copacabana, 335 — Copacabana, Rio de Janeiro, RJ', phone: '(21) 2195-7800 (reservations); (21) 2195-5300 (hotel)', email: 'gruposoperacional.copa@windsorhoteis.com.br; centraldereservas@windsorhoteis.com.br', website: 'https://windsorhoteis.com/hotel/windsor-copa/', notes: 'Rates are available with or without breakfast and have different payment and cancellation terms. Prices and availability are set at the time of booking.' },
+  { name: 'Premier Copacabana', neighborhood: 'Copacabana', address: 'Rua Tonelero, 205 — Copacabana, Rio de Janeiro, RJ', phone: '(21) 3816-9090', email: 'reservas@premier.com.br', website: 'https://premier.com.br/', notes: 'The hotel offers breakfast in the restaurant, Wi-Fi, pool, sauna and fitness facilities; please confirm what is included in the selected rate. Check-in from 2 p.m.; check-out until noon. Contact the hotel for reservations and further information.' },
+  { name: 'Copamar Hotel', neighborhood: 'Copacabana', address: 'Rua Santa Clara, 116 — Copacabana, Rio de Janeiro, RJ. The website also lists Rua Barata Ribeiro, 509.', phone: '(21) 2236-5184', email: 'copamar.reservas@gmail.com', website: 'https://www.hotelcopamar.com.br/', notes: 'For further information, please contact the hotel directly.' },
+  { name: 'ibis budget RJ Copacabana', neighborhood: 'Copacabana', address: 'Rua Constante Ramos, 96 — Copacabana, Rio de Janeiro, RJ', phone: '(21) 3282-6999', email: 'h9327-re@accor.com', website: 'https://all.accor.com/hotel/9327/index.pt-br.shtml', notes: 'For further information, please contact the hotel directly.' },
+];
+---
+
+<section id="accommodation" class="mx-auto max-w-7xl px-4 py-16 text-slate-800 sm:px-6 sm:py-20 dark:text-slate-200">
+  <div class="mx-auto mb-12 max-w-3xl text-center">
+    <h2 class="mb-4 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl dark:text-white">Accommodation</h2>
+    <div class="mx-auto mb-6 h-1 w-16 rounded bg-blue-600"></div>
+    <p class="text-lg text-slate-600 dark:text-slate-400">
+      The following hotels have provided information for SBMF 2026 participants. Please contact each hotel directly to confirm rates, availability and booking conditions.
+    </p>
+  </div>
+
+  <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+    {hotels.map((hotel) => (
+      <article class="flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-blue-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 dark:hover:border-blue-700">
+        <div class="mb-4 flex items-start justify-between gap-3">
+          <h3 class="text-xl font-bold leading-tight text-slate-900 dark:text-white">{hotel.name}</h3>
+          <span class="shrink-0 rounded-full bg-blue-50 px-2.5 py-1 text-xs font-semibold text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">{hotel.neighborhood}</span>
+        </div>
+        <dl class="space-y-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+          <div><dt class="font-semibold text-slate-800 dark:text-slate-200">Address</dt><dd>{hotel.address}</dd></div>
+          <div><dt class="font-semibold text-slate-800 dark:text-slate-200">Phone</dt><dd>{hotel.phone}</dd></div>
+          <div><dt class="font-semibold text-slate-800 dark:text-slate-200">Email</dt><dd><a class="text-blue-600 hover:underline dark:text-blue-400" href={`mailto:${hotel.email.split('; ')[0]}`}>{hotel.email}</a></dd></div>
+        </dl>
+        <div class="mt-5 border-t border-slate-100 pt-4 text-sm leading-relaxed text-slate-600 dark:border-slate-800 dark:text-slate-400">
+          <p><span class="font-semibold text-slate-800 dark:text-slate-200">Information: </span>{hotel.notes}</p>
+        </div>
+        <a href={hotel.website} target="_blank" rel="noopener noreferrer" class="mt-5 inline-flex items-center font-semibold text-blue-600 hover:underline dark:text-blue-400">
+          Visit hotel website <span aria-hidden="true" class="ml-1">→</span>
+        </a>
+      </article>
+    ))}
+  </div>
+</section>
