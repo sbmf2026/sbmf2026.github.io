@@ -1,0 +1,81 @@
+---
+const papers = [
+  {
+    title: 'Data validation based on a formal specification of the safety requirements - 20 years of industrial experience',
+    authors: 'Thierry Lecomte, Dalay Almeida, Vincent Germain and Michael Leuschel',
+  },
+  {
+    title: 'Strategy Synthesis in a Stochastic Generalised Dining Philosophers Game',
+    authors: 'Luke Lawson and Nils Timm',
+  },
+  {
+    title: 'Counterexample-Guided Abstraction Refinement for Nash Equilibrium Synthesis in Region-Control Multi-Agent Systems',
+    authors: 'Steven Jordaan and Nils Timm',
+  },
+  {
+    title: 'A Nominal Formalization of the Confluence of a Calculus with Explicit Substitutions via the Z Property',
+    authors: 'Flávio Leonardo Cavalcanti de Moura',
+  },
+  {
+    title: 'CAPRI: Contract-Aware Proof Repair for Isabelle',
+    authors: 'Jim Woodcock, Gabriel Leite, Augusto Sampaio and Ran Wei',
+  },
+  {
+    title: 'Towards a translation-free model checking approach for SysML v2 actions',
+    authors: 'Vitor Barros, Pedro Mesquita, Lucas Lima and Ciprian Teodorov',
+  },
+  {
+    title: 'Preservation and Repair of Reachability Strategies in a Changing Game Arena',
+    authors: 'Shobhit Singh, Qais Hamarneh, Mattias Ulbrich and Maike Schwammberger',
+  },
+  {
+    title: 'Edit, Check, Simulate and Train: A Toolkit for Urban Multi-lane Spatial Logic',
+    authors: 'Qais Hamarneh, Nils Wenninghoff, Akhila Bairy, Mattis Bihler, Florian Portscher, Tim Kreuch, Tao Schmidt and Maike Schwammberger',
+  },
+  {
+    title: 'Mechanizing a Resource-Aware Hoare Logic with Asymptotic Cost Assertions in Lean',
+    authors: 'Gabriel Araújo Saldanha and Rodrigo Ribeiro',
+  },
+  {
+    title: 'A Machine-Checked Formalization of the Pumping Lemma for Context-Free Languages via Pushdown Automata',
+    authors: 'Rodrigo Ribeiro',
+  },
+  {
+    title: 'A Machine-Checked Formalization of the Greibach Normal Form Conversion for Context-Free Grammars',
+    authors: 'Rodrigo Ribeiro',
+  },
+  {
+    title: 'Taming Paraconsistent Transition Semantics',
+    authors: 'Rodrigo Alves, Juliana Cunha and Alexandre Madeira',
+  },
+  {
+    title: 'Mechanised Reasoning about SystemVerilog Assertions in Rocq',
+    authors: 'Felipe Santos, Matheus Fonseca and Gustavo Carvalho',
+  },
+  {
+    title: 'Program Derivation with Relations, Crescents, Bendy Loops and Colored Wires',
+    authors: 'Gustavo Freire, Hugo Musso Gualandi, Hugo Nobrega and João Paixão',
+  },
+];
+---
+
+<section id="accepted-papers" class="mx-auto max-w-5xl px-6 py-16 text-slate-800 sm:py-20 dark:text-slate-200">
+  <div class="mb-10 text-center">
+    <h2 class="mb-4 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl dark:text-white">Accepted Papers</h2>
+    <div class="mx-auto mb-6 h-1 w-16 rounded bg-blue-600"></div>
+    <p class="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-400">
+      The following papers have been accepted for SBMF 2026.
+    </p>
+  </div>
+
+  <ul class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+    {papers.map((paper) => (
+      <li class="border-b border-slate-100 p-5 last:border-b-0 dark:border-slate-800 sm:px-6">
+        <div>
+          <h3 class="font-semibold leading-relaxed text-slate-900 dark:text-white">{paper.title}</h3>
+          <p class="mt-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{paper.authors}</p>
+        </div>
+      </li>
+    ))}
+  </ul>
+</section>

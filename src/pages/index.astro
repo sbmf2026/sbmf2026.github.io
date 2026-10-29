@@ -11,6 +11,7 @@ import ImportantDate from '~/pages/important-date.astro';
 import Registration from '~/pages/registration.astro';
 import Accommodation from '~/pages/accommodation.astro';
 import Venue from '~/pages/venue.astro';
+import AcceptedPapers from '~/pages/accepted-papers.astro';
 import Committees from '~/pages/committees.astro';
 import Submission from '~/pages/submission.astro';
 import ContactUs from '~/pages/contact-us.astro';
@@ -115,6 +116,10 @@ const revealOnScrollClass = 'intersect-once intersect-quarter motion-safe:md:opa
 
   <div class={revealOnScrollClass}>
     <Submission />
+  </div>
+
+  <div class={revealOnScrollClass}>
+    <AcceptedPapers />
   </div>
 
   <div class={revealOnScrollClass}>
