@@ -1,0 +1,29 @@
+---
+import campusMap from '~/assets/images/Mapa_PUC-Rio.png';
+---
+
+<section id="venue" class="mx-auto max-w-4xl px-6 py-12 text-slate-800 sm:py-16 dark:text-slate-200">
+  <div class="border-y border-slate-200 py-8 dark:border-slate-800">
+    <h2 class="mb-4 text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Venue</h2>
+    <p class="leading-relaxed text-slate-600 dark:text-slate-400">
+      All SBMF 2026 activities will take place at the <strong class="text-slate-800 dark:text-slate-200">Auditório Pe. Anchieta</strong>,
+      at <strong class="text-slate-800 dark:text-slate-200">PUC-Rio</strong> (Pontifical Catholic University of Rio de Janeiro).
+    </p>
+    <a
+      href={campusMap.src}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mx-auto mt-5 block w-fit overflow-hidden rounded border border-slate-200 bg-white shadow-sm transition hover:border-blue-400 hover:shadow-md dark:border-slate-700 dark:bg-slate-800"
+      aria-label="Open the PUC-Rio campus map in full size"
+    >
+      <img
+        src={campusMap.src}
+        alt="PUC-Rio campus map — click to open in full size"
+        width={1585}
+        height={1117}
+        class="h-auto w-80 object-cover sm:w-96 md:w-[40rem]"
+      />
+    </a>
+    <p class="mt-2 text-center text-xs text-slate-500 dark:text-slate-400">Click the map to view it in full size.</p>
+  </div>
+</section>
