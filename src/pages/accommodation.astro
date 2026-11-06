@@ -24,8 +24,22 @@ const hotels = [
 ];
 
 const neighborhoods = [...new Set(hotels.map((hotel) => hotel.neighborhood))];
-const getHotelLabel = (notes: string) => {
-  if (notes.includes('SBMF')) return 'SBMF participant offer';
+const promotionNotes: Record<string, string> = {
+  'ibis Styles RJ Botafogo': 'SBMF participants receive 15% off the public rate of the day through the booking link: https://all.accor.com/lien_externe.svlt?goto=rech_resa&destination=b2z6&sourceid=EVT15&dayIn=30&monthIn=11&yearIn=2026&nightNb=5&preferredCode=EVT15&merchantid=par-accorFR. For the quoted period, rates were R$ 549.00 single / R$ 609.00 double, including breakfast and 5% ISS; subject to change and availability.',
+  'ibis Rio de Janeiro Botafogo': 'SBMF participants receive 10% off the public rate for stays from December 1 to 4, 2026, using coupon SBMF26 on bUP Plus. The booking link pre-fills the coupon: https://bupplus.com.br/?cupom=SBMF26. Rates are flexible and subject to availability. Up to two children under 16 may stay on a sofa bed in the parents’ room, subject to availability.',
+  'ibis Copacabana Posto 5': 'The hotel offers 10% off the total reservation through the ALL Accor loyalty program. SBMF participants should contact the hotel directly to coordinate occupancy and bed configuration. Check rates with or without breakfast and prepayment conditions when booking.',
+  'South American Copacabana': 'SBMF participants may request 10% off quoted rates by providing code SBMF10 by email or WhatsApp. Reservations are subject to availability. Breakfast, Wi-Fi and in-room safe are included in the quoted rate, plus 5% ISS.',
+  'ibis Copacabana Posto 2': 'SBMF participants receive 10% off the public rate for stays from December 1 to 4, 2026, using coupon SBMF26 on bUP Plus. The booking link pre-fills the coupon: https://bupplus.com.br/?cupom=SBMF26. Rates are flexible and subject to availability. Up to two children under 16 may stay on a sofa bed in the parents’ room, subject to availability.',
+  'Windsor Copa': 'SBMF participants receive an additional 5% off available website rates for stays from November 29 to December 6, 2026, using code SBMF26. Book at https://windsorhoteis.com/. Options with or without breakfast and different payment and cancellation terms are available; prices and availability are set at booking. The code is also valid at Windsor Plaza and Windsor Excelsior.',
+  'Premier Copacabana': 'Individual bookings may receive 20% off through the hotel website. Confirm activation and applicable conditions for the selected period before booking. Breakfast, Wi-Fi, pool, sauna and fitness facilities are available; confirm what is included in the selected rate.',
+  'ibis budget RJ Copacabana': 'SBMF participants receive 10% off the public rate for stays from December 1 to 4, 2026, using coupon SBMF26 on bUP Plus. The booking link pre-fills the coupon: https://bupplus.com.br/?cupom=SBMF26. Rates are flexible and subject to availability. Up to two children under 16 may stay on a sofa bed in the parents’ room, subject to availability.',
+  'Hotel Vermont Ipanema': 'SBMF participants receive 10% off current rates for stays from November 30 to December 5, 2026, using code SBMF2026 when booking through the hotel website.',
+  'Samba Bossa Nova Ipanema': 'SBMF participants receive 10% off with code SBMF for stays from December 1 to 5, 2026. The benefit is exclusive to website bookings; the booking link pre-applies the coupon: https://book.omnibees.com/hotelresults?q=13116&lang=pt-PT&version=4&CheckIn=01122026&CheckOut=05122026&NRooms=1&ad=2&ch=0&ag=&Code=SBMF. Luxury and Premium categories have double beds; confirm rates, inclusions, taxes and terms when booking.',
+  'Ritz Hotel Leblon': 'SBMF participants may request the PUC rate directly by email from Sonia Sequeira in reservations. Superior rooms may have one double bed or two single beds, subject to availability; confirm rates and conditions when booking.',
+};
+const getHotelNotes = (hotel: (typeof hotels)[number]) => promotionNotes[hotel.name] ?? hotel.notes;
+const getHotelLabel = (hotel: (typeof hotels)[number]) => {
+  if (getHotelNotes(hotel).includes('SBMF')) return 'SBMF participant offer';
   return undefined;
 };
 ---
@@ -48,9 +62,9 @@ const getHotelLabel = (notes: string) => {
               <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-medium text-slate-800 marker:content-none dark:text-slate-200">
                 <span class="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1">
                   <span>{hotel.name}</span>
-                  {getHotelLabel(hotel.notes) && (
+                  {getHotelLabel(hotel) && (
                     <span class="rounded-full bg-blue-50 px-2 py-0.5 text-xs font-semibold text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
-                      {getHotelLabel(hotel.notes)}
+                      {getHotelLabel(hotel)}
                     </span>
                   )}
                 </span>
@@ -60,7 +74,7 @@ const getHotelLabel = (notes: string) => {
                 <p><span class="font-semibold text-slate-800 dark:text-slate-200">Address: </span>{hotel.address}</p>
                 <p><span class="font-semibold text-slate-800 dark:text-slate-200">Phone: </span>{hotel.phone}</p>
                 <p><span class="font-semibold text-slate-800 dark:text-slate-200">Email: </span><a class="text-blue-600 hover:underline dark:text-blue-400" href={`mailto:${hotel.email.split('; ')[0]}`}>{hotel.email}</a></p>
-                <p class="mt-3"><span class="font-semibold text-slate-800 dark:text-slate-200">Information: </span>{hotel.notes}</p>
+                <p class="mt-3"><span class="font-semibold text-slate-800 dark:text-slate-200">Information: </span>{getHotelNotes(hotel)}</p>
                 <a href={hotel.website} target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex font-semibold text-blue-600 hover:underline dark:text-blue-400">Visit hotel website <span aria-hidden="true" class="ml-1">→</span></a>
               </div>
             </details>
