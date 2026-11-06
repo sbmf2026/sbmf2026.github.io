@@ -38,6 +38,25 @@ const promotionNotes: Record<string, string> = {
   'Ritz Hotel Leblon': 'SBMF participants may request the PUC rate directly by email from Sonia Sequeira in reservations. Superior rooms may have one double bed or two single beds, subject to availability; confirm rates and conditions when booking.',
 };
 const getHotelNotes = (hotel: (typeof hotels)[number]) => promotionNotes[hotel.name] ?? hotel.notes;
+const getNoteParts = (notes: string) => {
+  const parts: Array<{ text: string; url?: string }> = [];
+  const urlPattern = /https?:\/\/[^\s]+/g;
+  let lastIndex = 0;
+  let match;
+
+  while ((match = urlPattern.exec(notes))) {
+    const rawUrl = match[0];
+    const url = rawUrl.replace(/[.,;]+$/, '');
+    const trailing = rawUrl.slice(url.length);
+    if (match.index > lastIndex) parts.push({ text: notes.slice(lastIndex, match.index) });
+    parts.push({ text: url, url });
+    if (trailing) parts.push({ text: trailing });
+    lastIndex = match.index + rawUrl.length;
+  }
+
+  if (lastIndex < notes.length) parts.push({ text: notes.slice(lastIndex) });
+  return parts;
+};
 const getHotelLabel = (hotel: (typeof hotels)[number]) => {
   if (getHotelNotes(hotel).includes('SBMF')) return 'SBMF participant offer';
   return undefined;
@@ -74,7 +93,7 @@ const getHotelLabel = (hotel: (typeof hotels)[number]) => {
                 <p><span class="font-semibold text-slate-800 dark:text-slate-200">Address: </span>{hotel.address}</p>
                 <p><span class="font-semibold text-slate-800 dark:text-slate-200">Phone: </span>{hotel.phone}</p>
                 <p><span class="font-semibold text-slate-800 dark:text-slate-200">Email: </span><a class="text-blue-600 hover:underline dark:text-blue-400" href={`mailto:${hotel.email.split('; ')[0]}`}>{hotel.email}</a></p>
-                <p class="mt-3"><span class="font-semibold text-slate-800 dark:text-slate-200">Information: </span>{getHotelNotes(hotel)}</p>
+                <p class="mt-3"><span class="font-semibold text-slate-800 dark:text-slate-200">Information: </span>{getNoteParts(getHotelNotes(hotel)).map((part) => part.url ? <a href={part.url} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline dark:text-blue-400 break-all">{part.text}</a> : part.text)}</p>
                 <a href={hotel.website} target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex font-semibold text-blue-600 hover:underline dark:text-blue-400">Visit hotel website <span aria-hidden="true" class="ml-1">→</span></a>
               </div>
             </details>
