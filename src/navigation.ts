@@ -7,6 +7,10 @@ export const headerData = {
       href: getPermalink('/#about'),
     },
     {
+      text: 'Program',
+      href: getPermalink('/#program'),
+    },
+    {
       text: 'Scope & Topics',
       href: getPermalink('/#scope-and-topics'),
     },
@@ -35,15 +39,6 @@ export const headerData = {
     {
       text: 'Publication',
       href: getPermalink('/#publication'),
-    },
-    {
-      text: 'Program',
-      links: [
-        {
-          text: 'Accepted Papers',
-          href: getPermalink('/#accepted-papers'),
-        },
-      ],
     },
     {
       text: 'Attending',
