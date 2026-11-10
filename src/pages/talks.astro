@@ -9,6 +9,7 @@ const speakers = [
   {
     name: 'Prof. Ana Cavalcanti',
     institution: 'University of York, UK',
+    title: 'Efficient and effective testing of cyclic systems',
     image: anaCavalcantiImage,
     link: 'https://www-users.york.ac.uk/~alcc500/',
     bio: 'Ana Cavalcanti is a Professor at the University of York, UK, and holds a Royal Academy of Engineering Chair in Emerging Technologies. In that role, she is Director of the RoboStar centre on Software Engineering for Robotics. She previously held a Royal Society Industry Fellowship, which provided her with the ideal opportunity to understand and contribute to the practice of formal methods working with QinetiQ. Her main scientific achievements have been on the design and justification of sound refinement-based program development and verification techniques. She has covered theoretical and practical integration with industry-strength technology: concurrency, object-orientation, and testing, dealing now with mobile and autonomous robots. She has led the development and justification of refinement theories, notations, and techniques, and tools to cope with control systems. Her work provides support for graphical notations popular with engineers, and for main-stream programming languages. It is distinctive in that it has comprehensive coverage of practical languages, rather than idealised notations. It also supports high degrees of automation to enable usability and scalability. She has chaired the Programme Committee of leading conferences, and been a member of numerous Programme Committees. Currently, she is the Chair of the Formal Methods Europe Board.',
@@ -16,6 +17,7 @@ const speakers = [
   {
     name: 'Prof. Antonio Filieri',
     institution: 'Amazon Web Services and Imperial College London',
+    title: 'A Formal Methods RenAIssance: AI, Trust, and What Is Worth Proving',
     image: antonioFilieriImage,
     link: 'https://antonio.filieri.me',
     bio: 'Antonio Filieri is a Principal Applied Scientist at Amazon Web Services and an Honorary Associate Professor of Software Engineering at Imperial College London, where he was previously a tenured Associate Professor. His current work focuses on neuro-symbolic methods for software engineering, integrating language-model agents with formal verification and testing to generate and refine code and specifications. His broader research combines automated reasoning, probabilistic analysis, and control theory to develop mathematical methods and practical tools for secure, dependable software. A central theme is understanding software behavior under uncertainty and using that understanding to guide verification and adaptation. At AWS, he applies these methods to cloud security and data integrity, including the synthesis and verification of cloud security controls.',
@@ -60,10 +62,9 @@ const speakers = [
         </a>
 
         {speaker.title && (
-          <div class="bg-blue-50 dark:bg-slate-800/50 border border-blue-100 dark:border-slate-700/50 rounded-xl p-5 mb-6 w-full grow flex flex-col justify-center">
-            <p class="text-xs font-semibold text-blue-700 dark:text-blue-300 uppercase tracking-widest mb-2">Talk Title</p>
-            <h4 class="text-lg font-semibold text-slate-900 dark:text-white leading-snug">
-              "{speaker.title}"
+          <div class="bg-blue-50 dark:bg-slate-800/50 border border-blue-100 dark:border-slate-700/50 rounded-xl px-4 py-3 mb-6 w-full">
+            <h4 class="text-sm font-semibold text-slate-900 dark:text-white leading-snug">
+              {speaker.title}
             </h4>
           </div>
         )}
