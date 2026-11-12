@@ -46,13 +46,25 @@ const schedule = [
 ];
 
 const repairEncoding = (value: string) => {
-  const cleaned = value.replace(/[^\x00-\x7F]/g, '').replace(/\s{2,}/g, ' ').trim();
-  return cleaned
-    .replace(/(\d{2}:\d{2})\s+(\d{2}:\d{2})/g, '$1 - $2')
-    .replaceAll('Genana Nunes', 'Gena\u00edna Nunes')
-    .replaceAll('Gabriel Araujo', 'Gabriel Ara\u00fajo')
-    .replaceAll('Flavio Leonardo', 'Fl\u00e1vio Leonardo')
-    .replaceAll('Joao Paixao', 'Jo\u00e3o Paix\u00e3o');
+  const cleaned = value
+    // Normalize punctuation that was repeatedly decoded as Latin-1.
+    .replaceAll('ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ', ' – ')
+    .replaceAll('ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â', ' — ')
+    .replaceAll('ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â·', ' · ')
+    .replaceAll('ÃƒÆ’Ã¢â‚¬Å¡Ã‚Â·', ' · ')
+    .replaceAll('ÃƒÆ’Ã‚Â¢Ã¢â‚¬â€œÃƒâ€šÃ‚Â¸', '▸')
+    // Restore accented characters affected by the same encoding issue.
+    .replaceAll('AraÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âºjo', 'Araújo')
+    .replaceAll('FlÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡vio', 'Flávio')
+    .replaceAll('JoÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£o', 'João')
+    .replaceAll('PaixÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£o', 'Paixão')
+    .replaceAll('ÃƒÆ’Ã…Â½Ãƒâ€šÃ‚Âµ', 'μ')
+    .replaceAll('ÃƒÆ’Ã…Â½Ãƒâ€šÃ‚Â»', 'λ')
+    .replaceAll('ÃƒÆ’Ã‚Â¢Ãƒâ€¹Ã¢â‚¬Â Ãƒâ€ Ã¢â‚¬â„¢', '')
+    .replaceAll('GÃƒÆ’Ã‚Â¢Ãƒâ€¹Ã¢â‚¬Â ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬min', 'G-min')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+  return cleaned.replace(/(\d{2}:\d{2})\s+(\d{2}:\d{2})/g, '$1 - $2');
 };
 ---
 
